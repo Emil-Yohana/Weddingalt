@@ -35,6 +35,184 @@
             overflow-x: hidden;
         }
 
+        /* Invitation opening */
+        body.invitation-loading {
+            overflow: hidden;
+        }
+
+        .invitation-opening {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: rgba(44, 44, 44, 0.42);
+            pointer-events: auto;
+        }
+
+        .envelope {
+            position: absolute;
+            width: min(520px, 82vw);
+            aspect-ratio: 1.55;
+            perspective: 900px;
+            background: #e8d5c0;
+            border: 1px solid rgba(201, 168, 76, 0.55);
+            border-radius: 3px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+            transform: translateY(0);
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.7s ease;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .envelope:hover,
+        .envelope:focus-visible {
+            transform: translateY(-5px);
+        }
+
+        .envelope:focus-visible {
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(232, 213, 163, 0.7);
+        }
+
+        .envelope:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+
+        .envelope::before,
+        .envelope::after {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .envelope::before {
+            background: linear-gradient(145deg, transparent 49.8%, rgba(201, 168, 76, 0.5) 50%, transparent 50.4%),
+                linear-gradient(215deg, transparent 49.8%, rgba(201, 168, 76, 0.5) 50%, transparent 50.4%);
+        }
+
+        .envelope::after {
+            background: linear-gradient(180deg, transparent 48%, rgba(255, 255, 255, 0.2));
+        }
+
+        .envelope-flap {
+            position: absolute;
+            z-index: 4;
+            top: 0;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 59%;
+            background: #f0dfcd;
+            border: 1px solid rgba(201, 168, 76, 0.55);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: 50% 0;
+            backface-visibility: hidden;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+        }
+
+        .envelope-seal {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            background: var(--blush);
+            color: var(--gold);
+            font-size: 1.2rem;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.35s ease;
+        }
+
+        .opening-content {
+            position: absolute;
+            z-index: 3;
+            top: 50%;
+            left: 50%;
+            display: grid;
+            justify-items: center;
+            gap: 12px;
+            width: 72%;
+            padding: 30px 20px;
+            background: var(--white);
+            border: 1px solid var(--gold-light);
+            color: var(--dark);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(44, 44, 44, 0.12);
+            transform: translate(-50%, -28%);
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.5s ease;
+        }
+
+        .opening-ornament {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .opening-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 400;
+        }
+
+        .opening-content p {
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .opening-hint {
+            margin-top: 4px;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.56rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .invitation-opening.is-opening .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .invitation-opening.is-opening .envelope-content {
+            transform: translate(-50%, -82%);
+        }
+
+        .invitation-opening.is-opening .opening-content {
+            opacity: 1;
+        }
+
+        .invitation-opening.is-opening .envelope-seal {
+            opacity: 0;
+        }
+
+        .invitation-opening.is-open .envelope {
+            opacity: 0;
+            transform: translateY(30px) scale(0.96);
+            pointer-events: none;
+        }
+
+        .invitation-opening.is-open {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .envelope,
+            .envelope-flap,
+            .opening-content {
+                transition-duration: 0.01ms;
+            }
+        }
+
         /* Floating petals animation */
         .petals-container {
             position: fixed;
@@ -1177,7 +1355,21 @@
         }
     </style>
 </head>
-<body>
+<body class="invitation-loading">
+
+    <!-- Opening animation -->
+    <div class="invitation-opening" id="invitationOpening" aria-label="Opening wedding invitation">
+        <div class="envelope" role="button" tabindex="0" aria-label="Open wedding invitation">
+            <div class="envelope-content opening-content">
+                <div class="opening-ornament">✦</div>
+                <h2>Emil &amp; Yohana</h2>
+                <p>Our wedding invitation</p>
+                <span class="opening-hint">Tap to open</span>
+            </div>
+            <div class="envelope-flap" aria-hidden="true"></div>
+            <div class="envelope-seal" aria-hidden="true">✦</div>
+        </div>
+    </div>
 
     <!-- Floating Petals -->
     <div class="petals-container" id="petals"></div>
@@ -1535,6 +1727,29 @@
     <script>
         // Paste the deployed Google Apps Script web app URL here.
         const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzER4HcLsyxLIzKQZNnWPE5IGlfto22hSMqUYpmadvT1k0-_SxNqc0TdByfN-mf9MFDVQ/exec';
+
+        // ===== Invitation Opening =====
+        const invitationOpening = document.getElementById('invitationOpening');
+        const envelope = invitationOpening.querySelector('.envelope');
+        const openingDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 50 : 1100;
+
+        function openInvitation() {
+            if (invitationOpening.classList.contains('is-opening')) return;
+
+            invitationOpening.classList.add('is-opening');
+            window.setTimeout(() => {
+                invitationOpening.classList.add('is-open');
+                document.body.classList.remove('invitation-loading');
+            }, openingDuration);
+        }
+
+        envelope.addEventListener('click', openInvitation);
+        envelope.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openInvitation();
+            }
+        });
 
         // ===== Language =====
         const translations = {
