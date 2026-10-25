@@ -93,6 +93,48 @@
             justify-content: center;
             gap: 40px;
             list-style: none;
+            align-items: center;
+        }
+
+        .language-toggle {
+            position: absolute;
+            right: 24px;
+            top: 12px;
+            display: flex;
+            gap: 3px;
+            padding: 3px;
+            border: 1px solid rgba(255,255,255,0.45);
+            background: rgba(0,0,0,0.12);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+        }
+
+        .language-toggle button {
+            border: 0;
+            background: transparent;
+            color: var(--white);
+            padding: 7px 8px;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .language-toggle button.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        nav.scrolled .language-toggle {
+            border-color: var(--gold-light);
+            background: var(--white);
+        }
+
+        nav.scrolled .language-toggle button {
+            color: var(--dark);
+        }
+
+        nav.scrolled .language-toggle button.active {
+            color: var(--white);
         }
 
         nav a {
@@ -134,7 +176,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, #3a3a3a 0%, #5a4a3a 50%, #3a3a3a 100%);
+            background: linear-gradient(rgba(35, 31, 28, 0.45), rgba(35, 31, 28, 0.6)), url('emil&yohana_NZ.jpg') center 42% / cover;
             overflow: hidden;
         }
 
@@ -338,6 +380,135 @@
             font-style: italic;
         }
 
+        /* Photo story */
+        .gallery-section {
+            background: var(--white);
+            padding-top: 30px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr 0.75fr;
+            grid-template-rows: 220px 220px;
+            gap: 14px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .photo-frame {
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+            background: var(--blush);
+        }
+
+        .photo-frame:first-child {
+            grid-row: span 2;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.04);
+        }
+
+        .photo-frame figcaption {
+            position: absolute;
+            left: 18px;
+            bottom: 15px;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+        }
+
+        /* Gift section */
+        .gift-section {
+            background: linear-gradient(180deg, var(--blush) 0%, var(--cream) 100%);
+        }
+
+        .gift-intro {
+            max-width: 620px;
+            margin: -25px auto 35px;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .gift-card {
+            background: var(--white);
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+        }
+
+        .gift-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .gift-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.8;
+            color: #777;
+        }
+
+        .gift-card .gift-value {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 10px 14px;
+            background: var(--cream);
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+        }
+
+        .gift-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .copy-account {
+            display: block;
+            margin: 14px auto 0;
+            border: 1px solid var(--gold-light);
+            padding: 9px 14px;
+            background: transparent;
+            color: var(--gold);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .copy-account:hover { background: var(--cream); }
+
         /* Details Section */
         .details-section {
             background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
@@ -516,62 +687,6 @@
 
         .attendance-option label:hover {
             border-color: var(--gold-light);
-        }
-
-        /* Meal Selection */
-        .meal-selection {
-            margin-bottom: 25px;
-        }
-
-        .meal-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .meal-option {
-            position: relative;
-        }
-
-        .meal-option input {
-            display: none;
-        }
-
-        .meal-option label {
-            display: block;
-            padding: 15px 20px;
-            border: 2px solid #e0d5c5;
-            background: var(--white);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .meal-option label:hover {
-            border-color: var(--gold-light);
-        }
-
-        .meal-option .meal-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: var(--dark);
-            margin-bottom: 3px;
-        }
-
-        .meal-option .meal-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.65rem;
-            color: #aaa;
-            letter-spacing: 1px;
-        }
-
-        .meal-option input:checked + label {
-            border-color: var(--gold);
-            background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
-        }
-
-        .meal-option input:checked + label .meal-name {
-            color: var(--gold);
         }
 
         /* Guest count */
@@ -946,10 +1061,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .meal-options {
-                grid-template-columns: 1fr;
-            }
-
             .rsvp-form {
                 padding: 40px 25px;
             }
@@ -987,6 +1098,25 @@
             .attendance-toggle {
                 flex-direction: column;
             }
+
+            .language-toggle {
+                right: 10px;
+                top: auto;
+                bottom: -42px;
+                background: rgba(250, 247, 242, 0.95);
+                border-color: var(--gold-light);
+            }
+
+            .language-toggle button { color: var(--dark); }
+
+            .photo-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 230px 160px;
+            }
+
+            .photo-frame:first-child { grid-column: span 2; grid-row: auto; }
+
+            .gift-grid { grid-template-columns: 1fr; }
         }
 
         /* Loading state */
@@ -1055,26 +1185,31 @@
     <!-- Navigation -->
     <nav id="navbar">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#details">Details</a></li>
-            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#home" data-i18n="navHome">Home</a></li>
+            <li><a href="#story" data-i18n="navStory">Our Story</a></li>
+            <li><a href="#details" data-i18n="navDetails">Details</a></li>
+            <li><a href="#gallery" data-i18n="navGallery">Gallery</a></li>
+            <li><a href="#gift" data-i18n="navGift">Gifts</a></li>
             <li><a href="#rsvp">RSVP</a></li>
         </ul>
+        <div class="language-toggle" aria-label="Language selector">
+            <button type="button" data-language="en" class="active">EN</button>
+            <button type="button" data-language="pt">PT</button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-ornament">✦ ✦ ✦</div>
-            <p class="hero-subtitle">We're getting married</p>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">We're getting married</p>
             <h1 class="hero-names">
                 Emil
                 <span class="amp">&</span>
                 Yohana
             </h1>
             <div class="hero-divider"></div>
-            <p class="hero-date">March 27th, 2027 &bull; Kai Hall, Hamilton, New Zealand</p>
+            <p class="hero-date" data-i18n="heroDate">March 27th, 2027 &bull; Kai Hall, Hamilton, New Zealand</p>
         </div>
         <div class="scroll-indicator">
             <svg viewBox="0 0 24 24">
@@ -1088,22 +1223,22 @@
         <div class="countdown" id="countdown">
             <div class="countdown-item">
                 <div class="countdown-number" id="days">000</div>
-                <div class="countdown-label">Days</div>
+                <div class="countdown-label" data-i18n="days">Days</div>
             </div>
             <div class="countdown-separator">:</div>
             <div class="countdown-item">
                 <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
+                <div class="countdown-label" data-i18n="hours">Hours</div>
             </div>
             <div class="countdown-separator">:</div>
             <div class="countdown-item">
                 <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
+                <div class="countdown-label" data-i18n="minutes">Minutes</div>
             </div>
             <div class="countdown-separator">:</div>
             <div class="countdown-item">
                 <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
+                <div class="countdown-label" data-i18n="seconds">Seconds</div>
             </div>
         </div>
     </section>
@@ -1111,31 +1246,55 @@
     <!-- Our Story -->
     <section class="story-section" id="story">
         <div class="section-title reveal">
-            <p>How It All Began</p>
-            <h2>Our Story</h2>
+            <p data-i18n="storyEyebrow">How It All Began</p>
+            <h2 data-i18n="storyTitle">Our Story</h2>
             <div class="ornament">❧</div>
         </div>
         <div class="story-content reveal">
-            <p>
-                Our story began on August 9, 2025, with a simple connection on an app, two people living on opposite sides of the world, not knowing just how much their lives were about to change.
-            </p>
+            <p data-i18n="storyOne">Our story began on August 9, 2025, with a simple connection on an app, two people living on opposite sides of the world, not knowing just how much their lives were about to change.</p>
             <br>
-            <p>
-After months of getting to know each other across the distance, we finally met in person on December 18, 2025, in England. What followed was a beautiful adventure filled with unforgettable moments, from the streets of Paris to Portugal and Rome. Somewhere between the long conversations, the flights, the laughter, and the goodbyes, we found something worth crossing the world for. 
-
-</p>
+            <p data-i18n="storyTwo">After months of getting to know each other across the distance, we finally met in person on December 18, 2025, in England. What followed was a beautiful adventure filled with unforgettable moments, from the streets of Paris to Portugal and Rome. Somewhere between the long conversations, the flights, the laughter, and the goodbyes, we found something worth crossing the world for.</p>
 <br>
-<p>
-Now, our next adventure begins in New Zealand, where we can't wait to celebrate our love and the beginning of our marriage with the people who mean the most to us.
-            </p>
+            <p data-i18n="storyThree">Now, our next adventure begins in New Zealand, where we can't wait to celebrate our love and the beginning of our marriage with the people who mean the most to us.</p>
+        </div>
+    </section>
+
+    <!-- Photo Story -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-title reveal">
+            <p data-i18n="galleryEyebrow">A Few Favourite Places</p>
+            <h2 data-i18n="galleryTitle">Our Journey</h2>
+            <div class="ornament">❧</div>
+        </div>
+        <div class="photo-grid reveal">
+            <figure class="photo-frame">
+                <img src="emil&yohana_NZ.jpg" alt="Emil and Yohana together in New Zealand">
+                <figcaption>New Zealand</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="emil&yohana_london.jpg" alt="Emil and Yohana in London">
+                <figcaption>London</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="emil&yohana_italy.jpg" alt="Emil and Yohana in Italy">
+                <figcaption>Italy</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="Emil&yohana_nz-lds-temple.jpg" alt="Emil and Yohana at the temple in New Zealand">
+                <figcaption>Temple View</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="emil&yohana_paris.jpg" alt="Emil and Yohana in Paris">
+                <figcaption>Paris</figcaption>
+            </figure>
         </div>
     </section>
 
     <!-- Event Details -->
     <section class="details-section" id="details">
         <div class="section-title reveal">
-            <p>Join Us</p>
-            <h2>Event Details</h2>
+            <p data-i18n="detailsEyebrow">Join Us</p>
+            <h2 data-i18n="detailsTitle">Event Details</h2>
             <div class="ornament">❧</div>
         </div>
         <div class="details-grid">
@@ -1145,7 +1304,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
                 </div>
-                <h3>The Ceremony</h3>
+                <h3 data-i18n="ceremony">The Ceremony</h3>
                 <p>
                     <span class="detail-highlight">3:30 PM</span><br>
                     Kai Hall<br>
@@ -1160,7 +1319,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                         <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
                     </svg>
                 </div>
-                <h3>The Reception</h3>
+                <h3 data-i18n="reception">The Reception</h3>
                 <p>
                     <span class="detail-highlight">6:00 PM</span><br>
                     Speeches, Dinner & Dancing<br>
@@ -1173,7 +1332,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
                     </svg>
                 </div>
-                <h3>Important Date</h3>
+                <h3 data-i18n="importantDate">Important Date</h3>
                 <p>
                     <span class="detail-highlight">Saturday, March 27th</span><br>
                     2027<br>
@@ -1187,15 +1346,15 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
     <!-- Schedule -->
     <section class="timeline-section" id="schedule">
         <div class="section-title reveal">
-            <p>What to Expect</p>
-            <h2>Wedding Day Schedule</h2>
+            <p data-i18n="scheduleEyebrow">What to Expect</p>
+            <h2 data-i18n="scheduleTitle">Wedding Day Schedule</h2>
             <div class="ornament">❧</div>
         </div>
         <div class="timeline">
             <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <div class="timeline-time">3:00 PM</div>
-                    <h4>Welcome snacks & drinks</h4>
+                    <h4 data-i18n="welcome">Welcome snacks & drinks</h4>
                     <p>Kai Hall</p>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1203,7 +1362,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
             <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <div class="timeline-time">3:30 PM</div>
-                    <h4>Ceremony</h4>
+                    <h4 data-i18n="ceremonyShort">Ceremony</h4>
                     <p>Kai Hall Front Lawn</p>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1211,7 +1370,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
             <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <div class="timeline-time">6:15 PM</div>
-                    <h4>Dinner</h4>
+                    <h4 data-i18n="dinner">Dinner</h4>
                     <p>Kai Hall</p>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1219,7 +1378,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
             <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <div class="timeline-time">8:00 PM</div>
-                    <h4>Speeches & Dessert</h4>
+                    <h4 data-i18n="speeches">Speeches & Dessert</h4>
                     <p>Kai Hall</p>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1227,7 +1386,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
             <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <div class="timeline-time">9:00 PM</div>
-                    <h4>First Dance</h4>
+                    <h4 data-i18n="firstDance">First Dance</h4>
                     <p>Dancing Begins</p>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1235,11 +1394,35 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
         </div>
     </section>
 
+    <!-- Gifts -->
+    <section class="gift-section" id="gift">
+        <div class="section-title reveal">
+            <p data-i18n="giftEyebrow">With Love</p>
+            <h2 data-i18n="giftTitle">Gift List</h2>
+            <div class="ornament">❧</div>
+        </div>
+        <p class="gift-intro reveal" data-i18n="giftIntro">Your presence is the greatest gift. For those who would like to celebrate with a contribution, we have included two simple options below.</p>
+        <div class="gift-grid">
+            <div class="gift-card reveal">
+                <h3 data-i18n="internationalTitle">International guests</h3>
+                <p data-i18n="internationalCopy">For friends and family sending from overseas, Wise is the easiest way to reach us.</p>
+                <div class="gift-value">@emilr173</div>
+                <a href="https://wise.com/pay/me/emilr173" target="_blank" rel="noopener" data-i18n="openWise">Open Wise</a>
+            </div>
+            <div class="gift-card reveal">
+                <h3 data-i18n="nzTitle">New Zealand guests</h3>
+                <p data-i18n="nzCopy">For domestic NZ transfers, our account details are:</p>
+                <div class="gift-value" id="accountNumber">02-1280-0852850-002</div>
+                <button type="button" class="copy-account" id="copyAccount" data-i18n="copyAccount">Copy account number</button>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP Section -->
     <section class="rsvp-section" id="rsvp">
         <div class="section-title reveal">
-            <p>Kindly Respond</p>
-            <h2>RSVP</h2>
+            <p data-i18n="rsvpEyebrow">Kindly Respond</p>
+            <h2 data-i18n="rsvpTitle">RSVP</h2>
             <div class="ornament">❧</div>
         </div>
         <div class="rsvp-container reveal">
@@ -1271,7 +1454,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="sarah@example.com" required>
+                    <input type="email" id="email" placeholder="yohana@example.com" required>
                 </div>
 
                 <!-- Guest Count -->
@@ -1281,41 +1464,6 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                         <button type="button" class="counter-btn" id="guestMinus">−</button>
                         <span class="counter-value" id="guestCount">1</span>
                         <button type="button" class="counter-btn" id="guestPlus">+</button>
-                    </div>
-                </div>
-
-                <!-- Meal Selection (shown when attending) -->
-                <div class="form-group" id="mealSection" style="display: none;">
-                    <label>Meal Preference</label>
-                    <div class="meal-options">
-                        <div class="meal-option">
-                            <input type="radio" name="meal" id="meal1" value="beef" required>
-                            <label for="meal1">
-                                <div class="meal-name">Filet Mignon</div>
-                                <div class="meal-desc">Herb-crusted with truffle butter</div>
-                            </label>
-                        </div>
-                        <div class="meal-option">
-                            <input type="radio" name="meal" id="meal2" value="fish">
-                            <label for="meal2">
-                                <div class="meal-name">Pan-Seared Salmon</div>
-                                <div class="meal-desc">With lemon dill sauce</div>
-                            </label>
-                        </div>
-                        <div class="meal-option">
-                            <input type="radio" name="meal" id="meal3" value="vegetarian">
-                            <label for="meal3">
-                                <div class="meal-name">Garden Risotto</div>
-                                <div class="meal-desc">Seasonal vegetables & parmesan</div>
-                            </label>
-                        </div>
-                        <div class="meal-option">
-                            <input type="radio" name="meal" id="meal4" value="pasta">
-                            <label for="meal4">
-                                <div class="meal-name">Wild Mushroom Pasta</div>
-                                <div class="meal-desc">Truffle cream & fresh herbs</div>
-                            </label>
-                        </div>
                     </div>
                 </div>
 
@@ -1385,6 +1533,68 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
     </div>
 
     <script>
+        // Paste the deployed Google Apps Script web app URL here.
+        const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzER4HcLsyxLIzKQZNnWPE5IGlfto22hSMqUYpmadvT1k0-_SxNqc0TdByfN-mf9MFDVQ/exec';
+
+        // ===== Language =====
+        const translations = {
+            en: {
+                navHome: 'Home', navStory: 'Our Story', navDetails: 'Details', navGallery: 'Gallery', navGift: 'Gifts',
+                heroSubtitle: "We're getting married", heroDate: 'March 27th, 2027 • Kai Hall, Hamilton, New Zealand',
+                days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
+                storyEyebrow: 'How It All Began', storyTitle: 'Our Story',
+                storyOne: 'Our story began on August 9, 2025, with a simple connection on an app, two people living on opposite sides of the world, not knowing just how much their lives were about to change.',
+                storyTwo: 'After months of getting to know each other across the distance, we finally met in person on December 18, 2025, in England. What followed was a beautiful adventure filled with unforgettable moments, from the streets of Paris to Portugal and Rome. Somewhere between the long conversations, the flights, the laughter, and the goodbyes, we found something worth crossing the world for.',
+                storyThree: "Now, our next adventure begins in New Zealand, where we can't wait to celebrate our love and the beginning of our marriage with the people who mean the most to us.",
+                galleryEyebrow: 'A Few Favourite Places', galleryTitle: 'Our Journey', detailsEyebrow: 'Join Us', detailsTitle: 'Event Details',
+                ceremony: 'The Ceremony', reception: 'The Reception', importantDate: 'Important Date', scheduleEyebrow: 'What to Expect', scheduleTitle: 'Wedding Day Schedule',
+                welcome: 'Welcome snacks & drinks', ceremonyShort: 'Ceremony', dinner: 'Dinner', speeches: 'Speeches & Dessert', firstDance: 'First Dance',
+                giftEyebrow: 'With Love', giftTitle: 'Gift List', giftIntro: 'Your presence is the greatest gift. For those who would like to celebrate with a contribution, we have included two simple options below.',
+                internationalTitle: 'International guests', internationalCopy: 'For friends and family sending from overseas, Wise is the easiest way to reach us.', openWise: 'Open Wise',
+                nzTitle: 'New Zealand guests', nzCopy: 'For domestic NZ transfers, our account details are:', copyAccount: 'Copy account number', rsvpEyebrow: 'Kindly Respond', rsvpTitle: 'RSVP'
+            },
+            pt: {
+                navHome: 'Início', navStory: 'Nossa história', navDetails: 'Detalhes', navGallery: 'Fotos', navGift: 'Presentes',
+                heroSubtitle: 'Vamos nos casar', heroDate: '27 de março de 2027 • Kai Hall, Hamilton, Nova Zelândia',
+                days: 'Dias', hours: 'Horas', minutes: 'Minutos', seconds: 'Segundos',
+                storyEyebrow: 'Como tudo começou', storyTitle: 'Nossa história',
+                storyOne: 'Nossa história começou em 9 de agosto de 2025, com uma simples conexão em um aplicativo. Éramos duas pessoas vivendo em lados opostos do mundo, sem imaginar o quanto nossas vidas estavam prestes a mudar.',
+                storyTwo: 'Depois de meses nos conhecendo à distância, finalmente nos encontramos pessoalmente em 18 de dezembro de 2025, na Inglaterra. O que veio depois foi uma linda aventura, cheia de momentos inesquecíveis, das ruas de Paris a Portugal e Roma. Entre conversas longas, voos, risadas e despedidas, encontramos algo pelo qual valia a pena atravessar o mundo.',
+                storyThree: 'Agora, nossa próxima aventura começa na Nova Zelândia, onde mal podemos esperar para celebrar nosso amor e o início do nosso casamento com as pessoas mais importantes para nós.',
+                galleryEyebrow: 'Alguns lugares especiais', galleryTitle: 'Nossa jornada', detailsEyebrow: 'Venha celebrar', detailsTitle: 'Detalhes do evento',
+                ceremony: 'A cerimônia', reception: 'A recepção', importantDate: 'Data importante', scheduleEyebrow: 'O que esperar', scheduleTitle: 'Programação do casamento',
+                welcome: 'Petiscos e bebidas', ceremonyShort: 'Cerimônia', dinner: 'Jantar', speeches: 'Discursos e sobremesa', firstDance: 'Primeira dança',
+                giftEyebrow: 'Com carinho', giftTitle: 'Lista de presentes', giftIntro: 'A sua presença é o maior presente. Para quem quiser celebrar conosco com uma contribuição, incluímos duas opções simples abaixo.',
+                internationalTitle: 'Convidados internacionais', internationalCopy: 'Para amigos e familiares enviando do exterior, o Wise é a forma mais fácil de nos presentear.', openWise: 'Abrir Wise',
+                nzTitle: 'Convidados da Nova Zelândia', nzCopy: 'Para transferências domésticas na NZ, os dados da nossa conta são:', copyAccount: 'Copiar número da conta', rsvpEyebrow: 'Confirme sua presença', rsvpTitle: 'RSVP'
+            }
+        };
+
+        function setLanguage(language) {
+            document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const value = translations[language][element.dataset.i18n];
+                if (value) element.textContent = value;
+            });
+            document.querySelectorAll('[data-language]').forEach(button => {
+                button.classList.toggle('active', button.dataset.language === language);
+            });
+            localStorage.setItem('weddingLanguage', language);
+        }
+
+        document.querySelectorAll('[data-language]').forEach(button => {
+            button.addEventListener('click', () => setLanguage(button.dataset.language));
+        });
+        setLanguage(localStorage.getItem('weddingLanguage') || 'en');
+
+        document.getElementById('copyAccount').addEventListener('click', async (event) => {
+            await navigator.clipboard.writeText(document.getElementById('accountNumber').textContent);
+            const button = event.currentTarget;
+            const originalLabel = button.textContent;
+            button.textContent = document.documentElement.lang === 'pt-BR' ? 'Copiado!' : 'Copied!';
+            setTimeout(() => { button.textContent = originalLabel; }, 1600);
+        });
+
         // ===== Floating Petals =====
         function createPetals() {
             const container = document.getElementById('petals');
@@ -1419,7 +1629,7 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
 
         // ===== Countdown Timer =====
         function updateCountdown() {
-            const wedding = new Date('September 20, 2025 16:00:00').getTime();
+            const wedding = new Date('March 27, 2027 15:30:00').getTime();
             const now = new Date().getTime();
             const diff = wedding - now;
 
@@ -1441,7 +1651,6 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
         // ===== Guest Counter =====
         let guestCount = 1;
         const guestDisplay = document.getElementById('guestCount');
-        const mealSection = document.getElementById('mealSection');
         const dietarySection = document.getElementById('dietarySection');
 
         document.getElementById('guestMinus').addEventListener('click', () => {
@@ -1462,18 +1671,12 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
         const attendingRadio = document.getElementById('attending');
         const decliningRadio = document.getElementById('not-attending');
 
-        function toggleMealSection() {
-            if (attendingRadio.checked) {
-                mealSection.style.display = 'block';
-                dietarySection.style.display = 'block';
-            } else {
-                mealSection.style.display = 'none';
-                dietarySection.style.display = 'none';
-            }
+        function toggleDietarySection() {
+            dietarySection.style.display = attendingRadio.checked ? 'block' : 'none';
         }
 
-        attendingRadio.addEventListener('change', toggleMealSection);
-        decliningRadio.addEventListener('change', toggleMealSection);
+        attendingRadio.addEventListener('change', toggleDietarySection);
+        decliningRadio.addEventListener('change', toggleDietarySection);
 
         // ===== Form Submission =====
         const form = document.getElementById('rsvpForm');
@@ -1487,7 +1690,9 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
             const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
             const attendance = document.querySelector('input[name="attendance"]:checked');
-            const meal = document.querySelector('input[name="meal"]:checked');
+            const dietaryRestrictions = Array.from(document.querySelectorAll('.dietary-tag:checked'))
+                .map(input => input.value)
+                .join(', ');
 
             // Validation
             if (!attendance) {
@@ -1502,17 +1707,37 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                 shakeElement(document.getElementById('email'));
                 return;
             }
-            if (attendance.value === 'attending' && !meal) {
-                shakeElement(mealSection);
-                return;
-            }
-
             // Loading state
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // Simulate submission
-            setTimeout(() => {
+            const submission = new URLSearchParams({
+                timestamp: new Date().toISOString(),
+                firstName,
+                lastName,
+                email,
+                attendance: attendance.value,
+                guestCount: String(guestCount),
+                dietaryRestrictions,
+                song: document.getElementById('song').value.trim(),
+                message: document.getElementById('message').value.trim(),
+                language: document.documentElement.lang
+            });
+
+            if (GOOGLE_APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                shakeElement(submitBtn);
+                alert('Please add your deployed Google Apps Script URL before sending RSVPs.');
+                return;
+            }
+
+            fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                body: submission.toString()
+            }).then(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
@@ -1534,9 +1759,12 @@ Now, our next adventure begins in New Zealand, where we can't wait to celebrate 
                 form.reset();
                 guestCount = 1;
                 guestDisplay.textContent = '1';
-                mealSection.style.display = 'none';
                 dietarySection.style.display = 'none';
-            }, 1500);
+            }).catch(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                alert('We could not send your RSVP. Please try again.');
+            });
         });
 
         function shakeElement(el) {
