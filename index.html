@@ -867,44 +867,6 @@
             border-color: var(--gold-light);
         }
 
-        /* Guest count */
-        .guest-counter {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 25px;
-        }
-
-        .counter-btn {
-            width: 45px;
-            height: 45px;
-            border: 2px solid #e0d5c5;
-            background: var(--white);
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .counter-btn:hover {
-            border-color: var(--gold);
-            background: rgba(201,168,76,0.05);
-        }
-
-        .counter-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--dark);
-            min-width: 40px;
-            text-align: center;
-        }
-
         /* Submit Button */
         .submit-btn {
             width: 100%;
@@ -1649,16 +1611,6 @@
                     <input type="email" id="email" placeholder="yohana@example.com" required>
                 </div>
 
-                <!-- Guest Count -->
-                <div class="form-group">
-                    <label>Number of Guests</label>
-                    <div class="guest-counter">
-                        <button type="button" class="counter-btn" id="guestMinus">−</button>
-                        <span class="counter-value" id="guestCount">1</span>
-                        <button type="button" class="counter-btn" id="guestPlus">+</button>
-                    </div>
-                </div>
-
                 <!-- Dietary Restrictions -->
                 <div class="form-group" id="dietarySection" style="display: none;">
                     <label>Dietary Restrictions</label>
@@ -1863,24 +1815,7 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // ===== Guest Counter =====
-        let guestCount = 1;
-        const guestDisplay = document.getElementById('guestCount');
         const dietarySection = document.getElementById('dietarySection');
-
-        document.getElementById('guestMinus').addEventListener('click', () => {
-            if (guestCount > 1) {
-                guestCount--;
-                guestDisplay.textContent = guestCount;
-            }
-        });
-
-        document.getElementById('guestPlus').addEventListener('click', () => {
-            if (guestCount < 10) {
-                guestCount++;
-                guestDisplay.textContent = guestCount;
-            }
-        });
 
         // ===== Attendance Toggle =====
         const attendingRadio = document.getElementById('attending');
@@ -1932,7 +1867,6 @@
                 lastName,
                 email,
                 attendance: attendance.value,
-                guestCount: String(guestCount),
                 dietaryRestrictions,
                 song: document.getElementById('song').value.trim(),
                 message: document.getElementById('message').value.trim(),
@@ -1972,8 +1906,6 @@
 
                 modal.classList.add('active');
                 form.reset();
-                guestCount = 1;
-                guestDisplay.textContent = '1';
                 dietarySection.style.display = 'none';
             }).catch(() => {
                 submitBtn.classList.remove('loading');
