@@ -1585,63 +1585,63 @@
                 <div class="attendance-toggle">
                     <div class="attendance-option">
                         <input type="radio" name="attendance" id="attending" value="attending" required>
-                        <label for="attending">✦ Joyfully Accept</label>
+                        <label for="attending" data-i18n="rsvpAttendanceAccept">✦ Joyfully Accept</label>
                     </div>
                     <div class="attendance-option">
                         <input type="radio" name="attendance" id="not-attending" value="declining">
-                        <label for="not-attending">Regretfully Decline</label>
+                        <label for="not-attending" data-i18n="rsvpAttendanceDecline">Regretfully Decline</label>
                     </div>
                 </div>
 
                 <!-- Names -->
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" placeholder="Yohana" required>
+                        <label for="firstName" data-i18n="firstNameLabel">First Name</label>
+                        <input type="text" id="firstName" placeholder="Yohana" data-i18n-placeholder="firstNamePlaceholder" required>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" placeholder="Roding" required>
+                        <label for="lastName" data-i18n="lastNameLabel">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Roding" data-i18n-placeholder="lastNamePlaceholder" required>
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="yohana@example.com" required>
+                    <label for="email" data-i18n="emailLabel">Email Address</label>
+                    <input type="email" id="email" placeholder="yohana@example.com" data-i18n-placeholder="emailPlaceholder" required>
                 </div>
 
                 <!-- Dietary Restrictions -->
                 <div class="form-group" id="dietarySection" style="display: none;">
-                    <label>Dietary Restrictions</label>
+                    <label data-i18n="dietaryLabel">Dietary Restrictions</label>
                     <div class="dietary-tags">
                         <input type="checkbox" class="dietary-tag" id="diet1" value="gluten-free">
-                        <label for="diet1">Gluten-Free</label>
+                        <label for="diet1" data-i18n="dietGlutenFree">Gluten-Free</label>
                         <input type="checkbox" class="dietary-tag" id="diet2" value="vegan">
-                        <label for="diet2">Vegan</label>
+                        <label for="diet2" data-i18n="dietVegan">Vegan</label>
                         <input type="checkbox" class="dietary-tag" id="diet3" value="dairy-free">
-                        <label for="diet3">Dairy-Free</label>
+                        <label for="diet3" data-i18n="dietDairyFree">Dairy-Free</label>
                         <input type="checkbox" class="dietary-tag" id="diet4" value="nut-allergy">
-                        <label for="diet4">Nut Allergy</label>
+                        <label for="diet4" data-i18n="dietNutAllergy">Nut Allergy</label>
                         <input type="checkbox" class="dietary-tag" id="diet5" value="other">
-                        <label for="diet5">Other</label>
+                        <label for="diet5" data-i18n="dietOther">Other</label>
                     </div>
                 </div>
 
                 <!-- Song Request -->
                 <div class="form-group">
-                    <label for="song">Song Request</label>
-                    <input type="text" id="song" placeholder="What song will make you dance?">
+                    <label for="song" data-i18n="songLabel">Song Request</label>
+                    <input type="text" id="song" placeholder="What song will make you dance?" data-i18n-placeholder="songPlaceholder">
                 </div>
 
                 <!-- Message -->
                 <div class="form-group">
-                    <label for="message">Message to the Couple</label>
-                    <textarea id="message" placeholder="Share your wishes, advice, or a favorite memory..."></textarea>
+                    <label for="message" data-i18n="messageLabel">Message to the Couple</label>
+                    <textarea id="message" placeholder="Share your wishes, advice, or a favorite memory..." data-i18n-placeholder="messagePlaceholder"></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn" id="submitBtn">
-                    <span>Send RSVP</span>
+                    <span data-i18n="submitRsvp">Send RSVP</span>
                 </button>
             </form>
         </div>
@@ -1718,7 +1718,15 @@
                 welcome: 'Welcome snacks & drinks', ceremonyShort: 'Ceremony', dinner: 'Dinner', speeches: 'Speeches & Dessert', firstDance: 'First Dance',
                 giftEyebrow: 'With Love', giftTitle: 'Gift List', giftIntro: 'Your presence is the greatest gift. For those who would like to celebrate with a contribution, we have included two simple options below.',
                 internationalTitle: 'International guests', internationalCopy: 'For friends and family sending from overseas, Wise is the easiest way to reach us.', openWise: 'Open Wise',
-                nzTitle: 'New Zealand guests', nzCopy: 'For domestic NZ transfers, our account details are:', copyAccount: 'Copy account number', rsvpEyebrow: 'Kindly Respond', rsvpTitle: 'RSVP'
+                nzTitle: 'New Zealand guests', nzCopy: 'For domestic NZ transfers, our account details are:', copyAccount: 'Copy account number', rsvpEyebrow: 'Kindly Respond', rsvpTitle: 'RSVP',
+                rsvpAttendanceAccept: '✦ Joyfully Accept', rsvpAttendanceDecline: 'Regretfully Decline',
+                firstNameLabel: 'First Name', lastNameLabel: 'Last Name', emailLabel: 'Email Address', dietaryLabel: 'Dietary Restrictions',
+                dietGlutenFree: 'Gluten-Free', dietVegan: 'Vegan', dietDairyFree: 'Dairy-Free', dietNutAllergy: 'Nut Allergy', dietOther: 'Other',
+                songLabel: 'Song Request', messageLabel: 'Message to the Couple', submitRsvp: 'Send RSVP',
+                firstNamePlaceholder: 'Yohana', lastNamePlaceholder: 'Roding', emailPlaceholder: 'yohana@example.com', songPlaceholder: 'What song will make you dance?', messagePlaceholder: 'Share your wishes, advice, or a favorite memory...',
+                rsvpModalAttendingTitle: 'Wonderful!', rsvpModalAttendingMessage: "We're so excited you'll be celebrating with us! We'll send more details soon. See you on March 27th, 2027!",
+                rsvpModalDecliningTitle: 'We Miss You Already', rsvpModalDecliningMessage: "Thank you for letting us know. We'll miss you on our special day and send you our love!",
+                rsvpMissingScriptUrl: 'Please add your deployed Google Apps Script URL before sending RSVPs.', rsvpSendError: 'We could not send your RSVP. Please try again.'
             },
             pt: {
                 navHome: 'Início', navStory: 'Nossa história', navDetails: 'Detalhes', navGallery: 'Fotos', navGift: 'Presentes',
@@ -1733,7 +1741,15 @@
                 welcome: 'Petiscos e bebidas', ceremonyShort: 'Cerimônia', dinner: 'Jantar', speeches: 'Discursos e sobremesa', firstDance: 'Primeira dança',
                 giftEyebrow: 'Com carinho', giftTitle: 'Lista de presentes', giftIntro: 'A sua presença é o maior presente. Para quem quiser celebrar conosco com uma contribuição, incluímos duas opções simples abaixo.',
                 internationalTitle: 'Convidados internacionais', internationalCopy: 'Para amigos e familiares enviando do exterior, o Wise é a forma mais fácil de nos presentear.', openWise: 'Abrir Wise',
-                nzTitle: 'Convidados da Nova Zelândia', nzCopy: 'Para transferências domésticas na NZ, os dados da nossa conta são:', copyAccount: 'Copiar número da conta', rsvpEyebrow: 'Confirme sua presença', rsvpTitle: 'RSVP'
+                nzTitle: 'Convidados da Nova Zelândia', nzCopy: 'Para transferências domésticas na NZ, os dados da nossa conta são:', copyAccount: 'Copiar número da conta', rsvpEyebrow: 'Confirme sua presença', rsvpTitle: 'RSVP',
+                rsvpAttendanceAccept: '✦ Confirmo com alegria', rsvpAttendanceDecline: 'Infelizmente não poderei comparecer',
+                firstNameLabel: 'Nome', lastNameLabel: 'Sobrenome', emailLabel: 'E-mail', dietaryLabel: 'Restrições alimentares',
+                dietGlutenFree: 'Sem glúten', dietVegan: 'Vegano', dietDairyFree: 'Sem lactose', dietNutAllergy: 'Alergia a nozes', dietOther: 'Outro',
+                songLabel: 'Pedido de música', messageLabel: 'Mensagem para os noivos', submitRsvp: 'Enviar RSVP',
+                firstNamePlaceholder: 'Yohana', lastNamePlaceholder: 'Roding', emailPlaceholder: 'yohana@example.com', songPlaceholder: 'Qual música vai te fazer dançar?', messagePlaceholder: 'Compartilhe seus desejos, conselhos ou uma lembrança favorita...',
+                rsvpModalAttendingTitle: 'Que alegria!', rsvpModalAttendingMessage: 'Estamos muito felizes por celebrar com você! Em breve enviaremos mais detalhes. Nos vemos em 27 de março de 2027!',
+                rsvpModalDecliningTitle: 'Já estamos com saudades', rsvpModalDecliningMessage: 'Obrigada por nos avisar. Vamos sentir sua falta no nosso grande dia e enviamos todo o nosso carinho!',
+                rsvpMissingScriptUrl: 'Adicione a URL do seu Google Apps Script antes de enviar os RSVPs.', rsvpSendError: 'Não conseguimos enviar seu RSVP. Tente novamente.'
             }
         };
 
@@ -1742,6 +1758,10 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const value = translations[language][element.dataset.i18n];
                 if (value) element.textContent = value;
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const value = translations[language][element.dataset.i18nPlaceholder];
+                if (value) element.setAttribute('placeholder', value);
             });
             document.querySelectorAll('[data-language]').forEach(button => {
                 button.classList.toggle('active', button.dataset.language === language);
@@ -1877,7 +1897,8 @@
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 shakeElement(submitBtn);
-                alert('Please add your deployed Google Apps Script URL before sending RSVPs.');
+                const currentLanguage = document.documentElement.lang === 'pt-BR' ? 'pt' : 'en';
+                alert(translations[currentLanguage].rsvpMissingScriptUrl);
                 return;
             }
 
@@ -1893,15 +1914,16 @@
                 const modalTitle = document.getElementById('modalTitle');
                 const modalName = document.getElementById('modalName');
                 const modalMessage = document.getElementById('modalMessage');
+                const currentLanguage = document.documentElement.lang === 'pt-BR' ? 'pt' : 'en';
 
                 if (attendance.value === 'attending') {
-                    modalTitle.textContent = 'Wonderful!';
+                    modalTitle.textContent = translations[currentLanguage].rsvpModalAttendingTitle;
                     modalName.textContent = firstName + ' ' + lastName;
-                    modalMessage.textContent = `We're so excited you'll be celebrating with us! We'll send more details soon. See you on September 20th!`;
+                    modalMessage.textContent = translations[currentLanguage].rsvpModalAttendingMessage;
                 } else {
-                    modalTitle.textContent = 'We Miss You Already';
+                    modalTitle.textContent = translations[currentLanguage].rsvpModalDecliningTitle;
                     modalName.textContent = firstName + ' ' + lastName;
-                    modalMessage.textContent = `Thank you for letting us know. We'll miss you on our special day and send you our love!`;
+                    modalMessage.textContent = translations[currentLanguage].rsvpModalDecliningMessage;
                 }
 
                 modal.classList.add('active');
@@ -1910,7 +1932,8 @@
             }).catch(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                alert('We could not send your RSVP. Please try again.');
+                const currentLanguage = document.documentElement.lang === 'pt-BR' ? 'pt' : 'en';
+                alert(translations[currentLanguage].rsvpSendError);
             });
         });
 
