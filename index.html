@@ -1686,6 +1686,9 @@
         const inviteeName = new URLSearchParams(window.location.search).get('name')?.trim();
         if (inviteeName) {
             invitationOpening.querySelector('.opening-content h2').textContent = `${inviteeName}`;
+            const nameParts = inviteeName.split(/\s+/);
+            document.getElementById('firstName').value = nameParts.shift();
+            document.getElementById('lastName').value = nameParts.join(' ');
         }
         const openingDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 50 : 1100;
 
