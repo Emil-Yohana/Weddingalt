@@ -1683,6 +1683,10 @@
         // ===== Invitation Opening =====
         const invitationOpening = document.getElementById('invitationOpening');
         const envelope = invitationOpening.querySelector('.envelope');
+        const inviteeName = new URLSearchParams(window.location.search).get('name')?.trim();
+        if (inviteeName) {
+            invitationOpening.querySelector('.opening-content h2').textContent = `${inviteeName}`;
+        }
         const openingDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 50 : 1100;
 
         function openInvitation() {
