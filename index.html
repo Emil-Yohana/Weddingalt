@@ -687,6 +687,40 @@
 
         .copy-account:hover { background: var(--cream); }
 
+        /* FAQ section */
+        .faq-section {
+            background: var(--white);
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--gold-light);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--gold-light);
+        }
+
+        .faq-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            max-width: 720px;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
         /* Details Section */
         .details-section {
             background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
@@ -1344,6 +1378,7 @@
             <li><a href="#details" data-i18n="navDetails">Details</a></li>
             <li><a href="#gallery" data-i18n="navGallery">Gallery</a></li>
             <li><a href="#gift" data-i18n="navGift">Gifts</a></li>
+            <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
             <li><a href="#rsvp">RSVP</a></li>
         </ul>
         <div class="language-toggle" aria-label="Language selector">
@@ -1572,6 +1607,29 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="section-title reveal">
+            <p data-i18n="faqEyebrow">Helpful details for your visit.</p>
+            <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+            <div class="ornament">❧</div>
+        </div>
+        <div class="faq-list">
+            <article class="faq-item reveal">
+                <h3 data-i18n="faqAttireQuestion">What should I wear?</h3>
+                <p data-i18n="faqAttireAnswer">We invite you to dress in your finest formal attire and celebrate with us. As our guests are a special part of the beauty of the day, we kindly ask ladies to avoid wearing white or black. Beyond that, there are no color restrictions—please wear what makes you feel your best.</p>
+            </article>
+            <article class="faq-item reveal">
+                <h3 data-i18n="faqPlusOneQuestion">Can I bring a plus one?</h3>
+                <p data-i18n="faqPlusOneAnswer">Due to limited capacity, we kindly ask that only those named on the invitation are included in the RSVP.</p>
+            </article>
+            <article class="faq-item reveal">
+                <h3 data-i18n="faqParkingQuestion">Is there parking at the venue?</h3>
+                <p data-i18n="faqParkingAnswer">Yes, plenty of free parking is available directly next to the venue.</p>
+            </article>
+        </div>
+    </section>
+
     <!-- RSVP Section -->
     <section class="rsvp-section" id="rsvp">
         <div class="section-title reveal">
@@ -1714,7 +1772,7 @@
         // ===== Language =====
         const translations = {
             en: {
-                navHome: 'Home', navStory: 'Our Story', navDetails: 'Details', navGallery: 'Gallery', navGift: 'Gifts',
+                navHome: 'Home', navStory: 'Our Story', navDetails: 'Details', navGallery: 'Gallery', navGift: 'Gifts', navFaq: 'FAQ',
                 heroSubtitle: "We're getting married", heroDate: 'March 27th, 2027 • Kai Hall, Hamilton, New Zealand',
                 days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
                 storyEyebrow: 'How It All Began', storyTitle: 'Our Story',
@@ -1727,6 +1785,10 @@
                 giftEyebrow: 'With Love', giftTitle: 'Gift List', giftIntro: 'Your presence is the greatest gift. For those who would like to celebrate with a contribution, we have included two simple options below.',
                 internationalTitle: 'International guests', internationalCopy: 'For friends and family sending from overseas, Wise is the easiest way to reach us.', openWise: 'Open Wise',
                 nzTitle: 'New Zealand guests', nzCopy: 'For domestic NZ transfers, our account details are:', copyAccount: 'Copy account number', rsvpEyebrow: 'Kindly Respond', rsvpTitle: 'RSVP',
+                faqEyebrow: 'Helpful details for your visit.', faqTitle: 'Frequently Asked Questions',
+                faqAttireQuestion: 'What should I wear?', faqAttireAnswer: 'We invite you to dress in your finest formal attire and celebrate with us. As our guests are a special part of the beauty of the day, we kindly ask ladies to avoid wearing white or black. Beyond that, there are no color restrictions—please wear what makes you feel your best.',
+                faqPlusOneQuestion: 'Can I bring a plus one?', faqPlusOneAnswer: 'Due to limited capacity, we kindly ask that only those named on the invitation are included in the RSVP.',
+                faqParkingQuestion: 'Is there parking at the venue?', faqParkingAnswer: 'Yes, plenty of free parking is available directly next to the venue.',
                 rsvpAttendanceAccept: '✦ Joyfully Accept', rsvpAttendanceDecline: 'Regretfully Decline',
                 firstNameLabel: 'First Name', lastNameLabel: 'Last Name', emailLabel: 'Email Address', dietaryLabel: 'Dietary Restrictions',
                 dietGlutenFree: 'Gluten-Free', dietVegan: 'Vegan', dietDairyFree: 'Dairy-Free', dietNutAllergy: 'Nut Allergy', dietOther: 'Other',
@@ -1737,7 +1799,7 @@
                 rsvpMissingScriptUrl: 'Please add your deployed Google Apps Script URL before sending RSVPs.', rsvpSendError: 'We could not send your RSVP. Please try again.'
             },
             pt: {
-                navHome: 'Início', navStory: 'Nossa história', navDetails: 'Detalhes', navGallery: 'Fotos', navGift: 'Presentes',
+                navHome: 'Início', navStory: 'Nossa história', navDetails: 'Detalhes', navGallery: 'Fotos', navGift: 'Presentes', navFaq: 'Perguntas',
                 heroSubtitle: 'Vamos nos casar', heroDate: '27 de março de 2027 • Kai Hall, Hamilton, Nova Zelândia',
                 days: 'Dias', hours: 'Horas', minutes: 'Minutos', seconds: 'Segundos',
                 storyEyebrow: 'Como tudo começou', storyTitle: 'Nossa história',
@@ -1750,6 +1812,10 @@
                 giftEyebrow: 'Com carinho', giftTitle: 'Lista de presentes', giftIntro: 'A sua presença é o maior presente. Para quem quiser celebrar conosco com uma contribuição, incluímos duas opções simples abaixo.',
                 internationalTitle: 'Convidados internacionais', internationalCopy: 'Para amigos e familiares enviando do exterior, o Wise é a forma mais fácil de nos presentear.', openWise: 'Abrir Wise',
                 nzTitle: 'Convidados da Nova Zelândia', nzCopy: 'Para transferências domésticas na NZ, os dados da nossa conta são:', copyAccount: 'Copiar número da conta', rsvpEyebrow: 'Confirme sua presença', rsvpTitle: 'RSVP',
+                faqEyebrow: 'Informações úteis para a sua visita.', faqTitle: 'Perguntas frequentes',
+                faqAttireQuestion: 'O que devo vestir?', faqAttireAnswer: 'Convidamos você a vestir o seu melhor traje formal e celebrar conosco. Como nossos convidados são uma parte especial da beleza desse dia, pedimos gentilmente que as mulheres evitem usar branco ou preto. Fora isso, não há restrições de cores: vista o que fizer você se sentir melhor.',
+                faqPlusOneQuestion: 'Posso levar um acompanhante?', faqPlusOneAnswer: 'Devido à capacidade limitada, pedimos gentilmente que apenas as pessoas nomeadas no convite sejam incluídas no RSVP.',
+                faqParkingQuestion: 'Há estacionamento no local?', faqParkingAnswer: 'Sim, há bastante estacionamento gratuito diretamente ao lado do local.',
                 rsvpAttendanceAccept: '✦ Confirmo com alegria', rsvpAttendanceDecline: 'Infelizmente não poderei comparecer',
                 firstNameLabel: 'Nome', lastNameLabel: 'Sobrenome', emailLabel: 'E-mail', dietaryLabel: 'Restrições alimentares',
                 dietGlutenFree: 'Sem glúten', dietVegan: 'Vegano', dietDairyFree: 'Sem lactose', dietNutAllergy: 'Alergia a nozes', dietOther: 'Outro',
